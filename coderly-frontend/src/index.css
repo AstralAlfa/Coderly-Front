@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+    --color-blueprint-bg: #12293D;
+    --color-blueprint-panel: #1B3A54;
+    --color-blueprint-grid: #3D6C94;
+    --color-blueprint-text: #EAF2F8;
+    --color-blueprint-stamp: #C24914;
+    --color-status-idea: #F2C14E;
+    --color-status-progress: #5FA8D3;
+    --color-status-done: #C24914;
+
+    --font-display: "Space Grotesk", sans-serif;
+    --font-body: "IBM Plex Sans", sans-serif;
+    --font-mono: "IBM Plex Mono", monospace;
+}
+
+body {
+    background-color: var(--color-blueprint-bg);
+    color: var(--color-blueprint-text);
+    font-family: var(--font-body);
+}
+
+.blueprint-grid {
+    background-image:
+      linear-gradient(var(--color-blueprint-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-blueprint-grid) 1px, transparent 1px);
+    background-size: 32px, 32px;
+    background-color: var(--color-blueprint-bg);
+    opacity: 1;
+}
