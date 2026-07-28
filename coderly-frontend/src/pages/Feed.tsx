@@ -23,7 +23,7 @@ export default function Feed() {
 
             try {
                 const projectsData = await getProjects(
-                    selectedTagId ? { tagId: selectedTagId } : undefined,
+                    selectedTagId ? { tagIds: selectedTagId } : undefined,
                 );
 
                 if (!isMounted) return;

@@ -10,6 +10,10 @@ export default function Login() {
     const { login } = useAuth();
     const navigate = useNavigate();
 
+    function isAxiosError(error: unknown): error is { response?: { status?: number } } {
+        return typeof error === 'object' && error !== null && 'response' in error;
+    }
+
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
         setError('');
@@ -17,8 +21,12 @@ export default function Login() {
             const { access_token } = await loginRequest({ email, password });
             login(access_token);
             navigate('/');
-        } catch {
-            setError('Неверный email или пароль');
+        } catch (err: unknown) {
+            if (isAxiosError(err) && err.response?.status === 403) {
+                setError('Проверьте почту, прежде чем войти. Проверь письмо.');
+            } else {
+                setError('Неверный email или пароль');
+            }
         }
     }
 

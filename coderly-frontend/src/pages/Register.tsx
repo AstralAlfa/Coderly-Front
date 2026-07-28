@@ -1,23 +1,20 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { register as registerRequest } from '../api/auth';
-import { useAuth } from '../hooks/useAuth';
 
 export default function Register() {
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const { login } = useAuth();
-    const navigate = useNavigate();
+    const [isRegistered, setIsRegistered] = useState(false);
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
         setError('');
         try {
-            const { access_token } = await registerRequest({ email, username, password });
-            login(access_token);
-            navigate('/');
+            await registerRequest({ email, username, password });
+            setIsRegistered(true);
         } catch (err: unknown) {
             if (typeof err === 'object' && err !== null) {
                 const response = (err as {
@@ -32,6 +29,18 @@ export default function Register() {
                 setError('Ошибка регистрации');
             }
         }
+    }
+
+    if (isRegistered) {
+        return (
+            <div className='max-w-sm mx-auto mt-12 sm:mt-20 px-4 text-center'>
+                <h1 className='font-display text-2xl mb-4'>Почти готово</h1>
+                <p className='font-body text-blueprint-text/80'>
+                    Мы отправили письмо на <span className='text-status-progress'>{email}</span>.
+                    Перейдите по ссылке в письме, чтобы подтвердить почту и войти. 
+                </p>
+            </div>
+        );
     }
 
     return (

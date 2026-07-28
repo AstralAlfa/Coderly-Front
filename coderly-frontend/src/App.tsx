@@ -9,6 +9,7 @@ import EditProject from './pages/EditProject';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import VerifyEmail from './pages/VerifyEmail';
 
 function App() {
     return (
@@ -38,6 +39,7 @@ function App() {
                                 </ProtectedRoute>
                             }
                         />
+                        <Route path='/verify-email' element={<VerifyEmail />} />
                     </Routes>
                 </div>
             </AuthProvider>

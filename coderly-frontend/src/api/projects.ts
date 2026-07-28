@@ -3,7 +3,7 @@ import type { Project, ProjectStatus } from '../types';
 
 interface ProjectFilters {
     status?: ProjectStatus;
-    tagId?: string;
+    tagIds?: string;
 }
 
 interface CreateProjectPayload {
