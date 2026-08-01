@@ -4,7 +4,9 @@ import type { User } from '../types';
 interface UpdateProfilePayload {
     username?: string;
     bio?: string;
-    github?: string;
+    githubUrl?: string;
+    phone?: string,
+    telegramUsername?: string;
 }
 
 export async function getMe(): Promise<User> {

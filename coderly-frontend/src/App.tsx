@@ -10,6 +10,7 @@ import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import VerifyEmail from './pages/VerifyEmail';
+import EditProfile from './pages/EditProfile';
 
 function App() {
     return (
@@ -40,6 +41,7 @@ function App() {
                             }
                         />
                         <Route path='/verify-email' element={<VerifyEmail />} />
+                        <Route path="/edit-profile" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
                     </Routes>
                 </div>
             </AuthProvider>

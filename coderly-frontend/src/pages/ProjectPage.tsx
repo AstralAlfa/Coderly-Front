@@ -44,7 +44,7 @@ export default function ProjectPage() {
             </div>
 
             <p className="font-mono text-xs text-blueprint-text/50 mt-2">
-                by {project.owner.username}
+                Автор: {project.owner.username}
             </p>
 
             <p className="font-body text-blueprint-text/80 mt-6 whitespace-pre-wrap">

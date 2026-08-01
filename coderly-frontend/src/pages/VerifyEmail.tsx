@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { verifyEmail } from "../api/auth";
 
@@ -7,8 +7,12 @@ export default function VerifyEmail() {
     const token = searchParams.get('token');
     const [status, setStatus] = useState<'loading' | 'success' | 'error'>(token ? 'loading' : 'error');
     const [message, setMessage] = useState(token ? '' : 'Токен отсутствует в ссылке');
+    const hasRun = useRef(false);
     
     useEffect(() => {
+        if (hasRun.current) return;
+        hasRun.current = true;
+
         if (!token) return;
 
         verifyEmail(token)

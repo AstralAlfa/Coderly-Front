@@ -20,7 +20,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                 ))}
             </div>
             <div className="font-mono text-xs text-blueprint-text/50 mt-3">
-                by {project.owner.username}
+                Автор: {project.owner.username}
             </div>
         </Link>
     );
