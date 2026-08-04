@@ -11,8 +11,8 @@ export interface User {
     username: string;
     bio: string | null;
     githubUrl: string | null;
-    phone: string | null;
-    telegramUsername: string | null;
+    phone?: string | null;
+    telegramUsername?: string | null;
 }
 
 export interface Project {

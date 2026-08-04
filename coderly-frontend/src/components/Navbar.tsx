@@ -24,6 +24,7 @@ export default function Navbar() {
                 {token ? (
                     <>
                         <Link to="/create" className="hover:text-status-progress">+ новый</Link>
+                        <Link to="/requests" className="hover:text-status-progress">Контакты</Link>
                         <Link to={`/users/${user?.username}`} className="hover:text-status-progress">
                             {user?.username}
                         </Link>

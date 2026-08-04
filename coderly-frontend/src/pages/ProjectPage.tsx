@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { getProject, deleteProject } from "../api/projects";
 import type { Project } from "../types";
 import { useAuth } from "../hooks/useAuth";
@@ -44,7 +44,7 @@ export default function ProjectPage() {
             </div>
 
             <p className="font-mono text-xs text-blueprint-text/50 mt-2">
-                Автор: {project.owner.username}
+                Автор: <Link to={`/users/${project.owner.username}`} className="text-status-progress hover:underline">{project.owner.username}</Link>
             </p>
 
             <p className="font-body text-blueprint-text/80 mt-6 whitespace-pre-wrap">

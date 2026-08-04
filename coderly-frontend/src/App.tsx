@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import VerifyEmail from './pages/VerifyEmail';
 import EditProfile from './pages/EditProfile';
+import Requests from './pages/Requests';
 
 function App() {
     return (
@@ -42,6 +43,7 @@ function App() {
                         />
                         <Route path='/verify-email' element={<VerifyEmail />} />
                         <Route path="/edit-profile" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
+                        <Route path='/requests' element={<ProtectedRoute><Requests /></ProtectedRoute>} />
                     </Routes>
                 </div>
             </AuthProvider>
